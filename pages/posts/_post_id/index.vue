@@ -24,9 +24,10 @@ export default {
     AppPostContent
   },
   asyncData(context) {
+    console.log(process.env.baseUrl);
     return axios
       .get(
-        `https://nuxt-revision-app.firebaseio.com/posts/${context.params.post_id}.json`
+        `${process.env.baseUrl}/posts/${context.params.post_id}.json`
       )
       .then(({ data }) => {
         const single_post = { post_id: context.params.post_id, ...data };

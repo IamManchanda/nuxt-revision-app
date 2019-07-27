@@ -13,7 +13,7 @@ export default {
   asyncData(context) {
     return axios
       .get(
-        `https://nuxt-revision-app.firebaseio.com/posts/${context.params.post_id}.json`
+        `${process.env.baseUrl}/posts/${context.params.post_id}.json`
       )
       .then(({ data }) => {
         const single_post = { post_id: context.params.post_id, ...data };

@@ -23,7 +23,7 @@ const createStore = () => {
     actions: {
       nuxtServerInit({ commit }) {
         return axios
-          .get("https://nuxt-revision-app.firebaseio.com/posts.json")
+          .get("${process.env.baseUrl}/posts.json")
           .then(({ data }) => {
             const postsArray = [];
             for (const key in data) {
@@ -42,7 +42,7 @@ const createStore = () => {
       addPost({ commit }, added_post) {
         return axios
           .post(
-            "https://nuxt-revision-app.firebaseio.com/posts.json",
+            "${process.env.baseUrl}/posts.json",
             added_post
           )
           .then(response => {
@@ -54,7 +54,7 @@ const createStore = () => {
       editPost({ commit }, edited_post) {
         return axios
           .put(
-            `https://nuxt-revision-app.firebaseio.com/posts/${
+            `${process.env.baseUrl}/posts/${
               edited_post.post_id
             }.json`,
             edited_post

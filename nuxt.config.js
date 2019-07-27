@@ -43,5 +43,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  env: {
+    baseUrl: "https://nuxt-revision-app.firebaseio.com",
+  },
 };
